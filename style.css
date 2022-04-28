@@ -1,11 +1,5 @@
 /* -------  General Styles ------- */
 
-html,
-body {
-  overflow-x: hidden;
-  margin: 0;
-}
-
 body {
   font-family: "Lato", sans-serif;
   color: #6b1a22;
@@ -37,8 +31,14 @@ section.alternate-background {
   color: #ecdbc9;
 }
 
-main img {
-  width: 100px;
+img {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ---  Groups & Items --- */
@@ -60,6 +60,7 @@ main img {
 /* -------  Navigation ------- */
 
 header {
+  display: none;
   background-color: #83092e;
   padding: 20px 20px 0 20px;
   text-align: center;
@@ -67,20 +68,14 @@ header {
 
 .logo {
   font-family: "Tangerine", cursive;
-  font-size: 50px;
-  margin-top: 20px;
+  font-size: 72px;
   color: #ecdbc9;
-}
-
-header nav {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
 }
 
 header nav ul {
   display: flex;
-  padding-left: 0px;
+  flex-direction: row;
+  justify-content: center;
 }
 
 header nav ul li {
@@ -90,7 +85,7 @@ header nav ul li {
 header nav ul li a {
   color: #ecdbc9;
   text-decoration: none;
-  padding: 0 20px 0 0;
+  padding: 0 20px 0 0; 
 }
 
 header nav ul li a:hover {
@@ -99,30 +94,31 @@ header nav ul li a:hover {
 }
 
 /* -------  Join Form ------- */
-#form-img {
+form {
+  border: 2px solid #6b1a22;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
-form {
-  border: 2px solid #6b1a22;
-  padding: 5px;
-}
-
-.form-field {
-  display: flex;
+form div {
+  display: flex; 
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 form label {
   font-weight: bold;
-  font-size: 15px;
+  display: flex;
+  width: 150px;
+  text-align: left;
 }
 
 form select,
 form input {
   margin-bottom: 20px;
-  width: 100px;
+  width: 180px;
+  display: flex;
 }
 
 form button {
@@ -132,30 +128,6 @@ form button {
   font-size: 24px;
   padding: 15px;
   width: 100%;
-}
-
-/* ------ About Image ------ */
-
-.about-img {
-  width: 100%;
-  margin-bottom: 25px;
-}
-
-/* ------ Download Image -------*/
-.download-img {
-  width: 100%;
-}
-
-/* ------ Blog Images ------*/
-
-.alternate-background img {
-  margin-top: 20px;
-  width: 100%;
-}
-
-/* ----- H2 ----- */
-.alternate-background h2 {
-  margin-top: 10px;
 }
 
 /* -------  Footer ------- */
@@ -172,54 +144,85 @@ footer p {
 
 /* -------  Media Query ------- */
 @media all and (min-width: 480px) {
-  .logo {
-    font-size: 45px;
-  }
 
-  header {
+  div{
     display: flex;
+    flex-direction: row;
+  }
+  
+  header {
+    display: none;
+    flex-direction: row;
     justify-content: space-between;
-    padding: 0px 30px;
   }
 
-  header h1 {
-    margin: 14px 0;
-    padding-top: 0;
+  main .item img {
+    display: flex;    
+    flex-direction: column;
   }
 
-  header nav {
-    margin-top: 8px;
+  .change {
+    width: 50%;
   }
 
-  .group {
+  .join {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .smallsize {
+    width: 20%;
+    padding: 5px;
+    padding-right: 20px;
+  }
+
+  .stacked {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+  }
+
+  .smallersize {
+    width: 55%;
+  }
+
+  .side {
+    display: flex;
     flex-direction: row;
   }
 
-  .item-form,
-  .item-paragraph,
-  .item-download {
-    align-self: center;
+  .sizeup {
+    max-width: 96%;
+    height: auto;
+    margin: auto;
   }
 
-  form input {
-    width: 30%;
+  #img2 {
+    max-width: 50%;
+    height: auto;
   }
 
-  .item {
-    flex: 1;
+  #blog p {
+    margin: 25px;
   }
 
-  .item-double {
-    flex: 2;
+  #blog h3 {
+    margin: 25px;
   }
 
-  .blog-group,
-  .about-group {
-    flex-wrap: wrap;
+  .pad{
+    padding:0 30px;
   }
 
-  .blog-item {
-    flex: 1 0 33%;
+  .pad2{
+    padding: 100px 0;
   }
-  
 }
